@@ -141,7 +141,6 @@ Recognizing these constraints prevents overgeneralization.
 ---
 
 ## 11. Repository Structure
-<<<<<<< Updated upstream
 
 notebooks/
 01_train_resnet18.ipynb
@@ -150,18 +149,18 @@ notebooks/
 04_severity_curves.ipynb
 05_gradcam_analysis.ipynb
 
-=======
-notebooks/
-01_train_resnet18.ipynb
-02_train_densenet121.ipynb
-03_cifar10c_evaluation.ipynb
-04_severity_curves.ipynb
-05_gradcam_analysis.ipynb
-
->>>>>>> Stashed changes
 figures/
-models/
+gradcum_analysis.png
+severity_curves.png
+
 notes/
+research_notes.md
+
+README
+
+LICENSE
+
+.gitignore
 
 
 ---
@@ -173,7 +172,3 @@ Robustness is not binary.
 Convolutional networks exhibit structured, corruption-specific degradation patterns that can be systematically analyzed.
 
 Understanding these failure modes is essential for building reliable AI systems in real-world environments.
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
