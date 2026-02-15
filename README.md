@@ -6,16 +6,16 @@ When CNNs Fail: Robustness Under Distribution Shift
 ---
 
 > Second-year AI undergraduate exploring robustness and reliability in deep learning systems.
-
+> This project explores how convolutional neural networks behave when the world is not clean, structured, and benchmark-friendly.
 ---
 
 ## 1. Research Question
 
-**Do convolutional neural networks degrade gracefully under distribution shift, or do structured corruptions induce predictable failure modes?**
+Do convolutional neural networks degrade gradually under distribution shift, or do certain corruptions cause sharp, predictable failure patterns?
 
-Modern vision models achieve high accuracy on curated benchmarks, yet real-world environments introduce blur, noise, compression artifacts, and environmental distortions.
+Modern vision models perform extremely well on curated datasets. But real-world data includes blur, noise, compression artifacts, lighting shifts, and environmental distortions.
 
-This project investigates not only *whether models fail*, but *how failure unfolds.*
+Instead of only measuring performance drop, this project studies how the failure unfolds.
 
 ---
 
@@ -63,29 +63,33 @@ This raises a central question:
 - JPEG Compression  
 - Brightness  
 
-Rather than reporting a single robustness score, this study examines **behavioral degradation patterns** across severity levels.
+Rather than reporting a single robustness score, the analysis focuses on severity-wise degradation trends.
 
 ---
 
 ## 5. Key Findings
 
-- Up to **43% accuracy drop** under severe contrast  
-- Robustness is corruption-dependent, not uniform  
-- Structural corruptions caused greater degradation than pixel-level perturbations  
-- JPEG compression and brightness showed comparatively graceful degradation  
-- DenseNet121 demonstrated slightly stronger resilience  
+- Accuracy dropped by up to 43% under severe contrast corruption
+- Robustness was highly corruption-dependent
+- Structural corruptions (contrast, fog, blur) caused sharper degradation than pixel-level noise
+- JPEG compression and brightness changes resulted in comparatively milder decline
+- DenseNet121 showed slightly better resilience overall
 
-These results indicate that distribution shift induces **distinct failure regimes**, not merely performance decay.
+These results suggest that model failure is structured  not random.
 
 ---
 
-## 6. Robustness Degradation Curves
+## 6.Severity Degradation Patterns
 
-Severity-based evaluation reveals different collapse dynamics:
+Different corruptions produced different collapse behaviors:
 
-- **Contrast → near-linear degradation**
-- **Fog → threshold-driven collapse**
-- **Motion Blur → early feature damage followed by stabilization**
+- Contrast → near-linear degradation
+
+- Fog → threshold-like collapse at higher severities
+
+- Motion Blur → early degradation followed by partial stabilization
+
+This indicates that CNN vulnerability depends strongly on what type of visual information is disrupted , especially edges and spatial structure.
 
 <p align="center">
   <img src="figures/severity_curves.png" width="650"/>
@@ -102,7 +106,7 @@ Grad-CAM was used to examine model attention under corruption.
 - Severe corruptions cause attention drift toward background regions  
 - Feature localization weakens  
 
-This suggests robustness failures stem from **feature collapse**, not random misclassification.
+This suggests that robustness failures may stem from disruption of hierarchical feature representations rather than simple noise sensitivity.
 
 <p align="center">
   <img src="figures/gradcam_analysis.png" width="650"/>
